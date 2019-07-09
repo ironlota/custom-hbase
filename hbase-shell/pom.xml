@@ -123,6 +123,10 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>findbugs-maven-plugin</artifactId>
+        <version>3.0.4</version>
+        <configuration>
+          <failOnError>${maven.findbugs.failure.strict}</failOnError>
+        </configuration>
       </plugin>
       <!-- Testing plugins -->
       <plugin>

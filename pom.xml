@@ -567,9 +567,10 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>findbugs-maven-plugin</artifactId>
-          <version>3.0.0</version>
+          <version>3.0.4</version>
           <!--NOTE: Findbugs 3.0.0 requires jdk7-->
           <configuration>
+            <failOnError>${maven.findbugs.failure.strict}</failOnError>
             <excludeFilterFile>${project.basedir}/../dev-support/findbugs-exclude.xml</excludeFilterFile>
             <findbugsXmlOutput>true</findbugsXmlOutput>
             <xmlOutput>true</xmlOutput>
@@ -886,6 +887,10 @@
       <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>findbugs-maven-plugin</artifactId>
+        <version>3.0.4</version>
+        <configuration>
+          <failOnError>${maven.findbugs.failure.strict}</failOnError>
+        </configuration>
         <executions>
           <execution>
             <inherited>false</inherited>
