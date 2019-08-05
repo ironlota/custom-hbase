@@ -15,7 +15,7 @@ public class MemoryReader implements Runnable {
   private File file = null;
   private boolean exists = false;
 
-  private static final int MegaBytes = 10241024;
+  private static final int MegaBytes = 1024 * 1024;
 
   // public static final Log LOG =
   // LogFactory.getLog(MemoryReader.class.getName());
