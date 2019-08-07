@@ -27,32 +27,32 @@ public class MemoryReader implements Runnable {
 
   @Override
   public void run() {
-    // while (!Thread.currentThread().isInterrupted()) {
     try {
 
-      file = new File("/mnt/extra/holder.txt");
-      exists = file.exists();
+      while (!Thread.currentThread().isInterrupted()) {
+        file = new File("/mnt/extra/holder.txt");
+        exists = file.exists();
 
-      System.gc();
+        System.gc();
 
-      Thread.sleep(5000);
+        Thread.sleep(5000);
 
-      if (exists) {
-        long freeMemory = Runtime.getRuntime().freeMemory() / MegaBytes;
-        long totalMemory = Runtime.getRuntime().totalMemory() / MegaBytes;
-        long maxMemory = Runtime.getRuntime().maxMemory() / MegaBytes;
+        if (exists) {
+          long freeMemory = Runtime.getRuntime().freeMemory() / MegaBytes;
+          long totalMemory = Runtime.getRuntime().totalMemory() / MegaBytes;
+          long maxMemory = Runtime.getRuntime().maxMemory() / MegaBytes;
 
-        logger.warn("Used Memory  : {} MB", (totalMemory - freeMemory));
-        logger.warn("Free Memory  : {} MB", (freeMemory));
-        logger.warn("Total memory : {} MB", (totalMemory));
-        logger.warn("Max Memory   : {} MB", (maxMemory));
-      } else {
-        logger.warn("Waiting for file exists");
+          logger.warn("Used Memory  : {} MB", (totalMemory - freeMemory));
+          logger.warn("Free Memory  : {} MB", (freeMemory));
+          logger.warn("Total memory : {} MB", (totalMemory));
+          logger.warn("Max Memory   : {} MB", (maxMemory));
+        } else {
+          logger.warn("Waiting for file exists");
+        }
       }
     } catch (InterruptedException e) {
       logger.error("Error while sleeping");
     }
-    // }
   }
 
 }
